@@ -6,6 +6,9 @@
     <title>4A 40R SHOP | Premium Avakin Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     
+    <!-- 🚀 السكريبت السحري بتاع SellApp اللي بيشغل النافذة المنبثقة -->
+    <script src="https://cdn.sell.app/embed/script.js" type="module"></script>
+
     <style>
         /* =========================================
            GENERAL STYLES & BACKGROUND
@@ -194,6 +197,9 @@
             transition: all 0.3s ease;
             cursor: pointer;
             width: 100%;
+            /* التعديلات دي عشان لو استخدمنا button بدل a الشكل ميبظش */
+            appearance: none;
+            outline: none;
         }
 
         .buy-btn:hover {
@@ -229,16 +235,19 @@
         <h2 class="section-title">👑 VIP Subscriptions</h2>
         <div class="products-grid">
             
-            <!-- Bronze 7 Days -->
+            <!-- Bronze 7 Days (تم التعديل لـ SellApp) -->
             <div class="product-card">
                 <!-- bronze img -->
                 <img src="https://cdn.discordapp.com/attachments/1297449838559891561/1515256996197302362/1781334704734.png?ex=6a30fb8c&is=6a2faa0c&hm=20e91dd75728597a26ccb1003068c16c8ab5e9e91c49d8e0d7ec54aaa20994f4&" alt="VIP Bronze" class="product-img">
                 <h3 class="product-title">VIP Bronze - 7 Days</h3>
                 <div class="product-desc">Instant VIP Bronze Role<br>Claim Daily L-Points & V-Points<br>100% Automated & Safe</div>
                 <div class="product-price">$2.99</div>
-                <!--payhip link-->
-                <a href="https://payhip.com/b/y1zSm" target="_blank" class="buy-btn">PURCHASE</a>
+                
+                <!-- 🚀 زرار SellApp السحري -->
+                <button data-sell-store="4oravkn" data-sell-product="vip-bronze-7-days" data-sell-theme="dark" class="buy-btn">PURCHASE</button>
             </div>
+
+            <!-- باقي المنتجات زي ما هي بـ Payhip لحد ما تعملها في SellApp -->
 
             <!-- Bronze 30 Days -->
             <div class="product-card">
