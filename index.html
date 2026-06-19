@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4A 40R SHOP | THE APEX TIER</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.sell.app/embed/script.js" type="module"></script>
+    <link href="https://cdn.sell.app/embed/style.css" rel="stylesheet" />
+
+    <style>
+        /* =========================================
+           CORE VARIABLES & RESET
+        ========================================= */
+        :root {
+            --cyan: #00f0ff;
+            --pink: #ff003c;
+            --purple: #7000ff;
+            --bg-void: #030305;
+            --card-inner: #0a0c10;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+
+        body {
+            background-color: var(--bg-void);
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-void); }
+        ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 4px; }
+
+        /* =========================================
+           CUSTOM LASER CURSOR
+        ========================================= */
+        .cursor-dot {
+            width: 8px; height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--cyan);
+            transition: width 0.2s, height 0.2s;
+        }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 1px solid rgba(0, 240, 255, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: 0.1s ease-out;
+        }
+
+        /* =========================================
+           ANIMATED GRADIENT MESH BACKGROUND
+        ========================================= */
+        .bg-mesh {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 60, 0.05) 0%, transparent 40%);
+            z-index: -2;
+            animation: breathe 10s infinite alternate;
+        }
+        
+        .grid-lines {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px);
+            animation: gridMove 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes breathe { 0% { opacity: 0.5; } 100% { opacity: 1; } }
+        @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 0 40px; } }
+
+        /* =========================================
+           TOP NAVIGATION (GLITCH EFFECT)
+        ========================================= */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100;
+            background: rgba(3, 3, 5, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        .brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            position: relative;
+        }
+
+        .brand::before, .brand::after {
+            content: '4A 40R';
+            position: absolute;
+            top: 0; left: 0;
+            opacity: 0.8;
+        }
+        .brand::before { color: var(--cyan); z-index: -1; transform: translate(-2px, 2px); }
+        .brand::after { color: var(--pink); z-index: -2; transform: translate(2px, -2px); }
+
+        .menu-btn { font-size: 2rem; color: var(--cyan); transition: 0.3s; }
+
+        /* =========================================
+           HERO SECTION
+        ========================================= */
+        .hero {
+            height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-logo {
+            width: 220px;
+            filter: drop-shadow(0 0 20px var(--cyan));
+            margin-bottom: 20px;
+            animation: levitate 4s ease-in-out infinite;
+        }
+
+        @keyframes levitate {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); filter: drop-shadow(0 0 40px var(--cyan)); }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5vw;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.2);
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            color: var(--cyan);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           INFINITE MARQUEE
+        ========================================= */
+        .marquee-wrapper {
+            background: var(--cyan);
+            color: #000;
+            padding: 10px 0;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+            transform: rotate(-1deg) scale(1.02);
+            box-shadow: 0 0 20px var(--cyan);
+            position: relative;
+            z-index: 10;
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: scrollText 15s linear infinite;
+        }
+
+        .marquee-content span { margin: 0 50px; }
+
+        @keyframes scrollText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* =========================================
+           PRODUCTS GRID & SPINNING BORDER CARDS
+        ========================================= */
+        .container { max-width: 1400px; margin: 0 auto; padding: 100px 20px; }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 80px;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1px #fff;
+            position: relative;
+        }
+        .section-title::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 0; width: 100%;
+            color: var(--cyan);
+            -webkit-text-stroke: 0px;
+            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+            margin-bottom: 120px;
+        }
+
+        
+        .product-card {
+            position: relative;
+            background: #000;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            transform: translateY(50px); /* للـ Scroll Reveal */
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .product-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, var(--cyan));
+            animation: spinBorder 4s linear infinite;
+            z-index: -2;
+        }
+
+        
+        .product-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--card-inner);
+            border-radius: 18px;
+            z-index: -1;
+        }
+
+        @keyframes spinBorder { 100% { transform: rotate(360deg); } }
+
+        
+        .product-card:hover::before {
+            background: conic-gradient(transparent, transparent, transparent, var(--pink));
+            animation-duration: 2s;
+        }
+
+        .product-card:hover { transform: translateY(-15px) scale(1.02); }
+
+        .product-img {
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 25px;
+            transition: 0.5s;
+        }
+        .product-card:hover .product-img { transform: scale(1.2); filter: drop-shadow(0 0 20px var(--cyan)); }
+
+        .product-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .product-desc { color: #a0aec0; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
+
+        .product-price {
+            font-size: 3rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(0,240,255,0.5);
+        }
+
+        /* =========================================
+           CYBER BUTTONS
+        ========================================= */
+        .buy-btn {
+            position: relative;
+            background: transparent;
+            color: var(--cyan);
+            border: 1px solid var(--cyan);
+            padding: 15px 0;
+            width: 100%;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            appearance: none;
+        }
+
+        .buy-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--cyan);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .buy-btn:hover { color: #000; box-shadow: 0 0 20px var(--cyan); }
+        .buy-btn:hover::before { transform: scaleX(1); transform-origin: left; }
+
+        /* =========================================
+           SIDEBAR
+        ========================================= */
+        .sidebar {
+            position: fixed; top: 0; right: -400px;
+            width: 350px; height: 100vh;
+            background: #05070a;
+            border-left: 2px solid var(--cyan);
+            z-index: 1000;
+            transition: 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+            padding: 100px 40px;
+            display: flex; flex-direction: column;
+        }
+        .sidebar.active { right: 0; box-shadow: -10px 0 50px rgba(0,240,255,0.2); }
+        .close-btn { position: absolute; top: 30px; right: 40px; font-size: 2.5rem; color: #fff; transition: 0.3s; }
+        .close-btn:hover { color: var(--pink); transform: rotate(180deg); }
+        .sidebar a {
+            color: #fff; font-family: 'Orbitron'; font-size: 1.5rem; text-decoration: none;
+            margin: 20px 0; transition: 0.3s;
+        }
+        .sidebar a:hover { color: var(--cyan); padding-left: 15px; }
+        .sidebar-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 999; opacity: 0; visibility: hidden; transition: 0.4s;
+        }
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+
+    
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    
+    <div class="bg-mesh"></div>
+    <div class="grid-lines"></div>
+
+    
+    <header>
+        <div class="brand">4A 40R</div>
+        <i class="fa-solid fa-bars menu-btn" onclick="openSidebar()"></i>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+    <nav class="sidebar" id="mySidebar">
+        <i class="fa-solid fa-xmark close-btn" onclick="closeSidebar()"></i>
+        <a href="#vip">VIP Services</a>
+        <a href="#points">P-Points</a>
+        <a href="https://discord.gg/x4r7FpCyHT" target="_blank" style="color:var(--pink); margin-top:50px;">
+            <i class="fa-brands fa-discord"></i> Support Server
+        </a>
+    </nav>
+
+    
+    <section class="hero">
+        <img src="https://cdn.discordapp.com/attachments/1297449838559891561/1515989495810625657/Screenshot_20260615_010048_Gallery.jpg?ex=6a3102bd&is=6a2fb13d&hm=9ad0d97717b98eb4a5ee53bdc67a0bdef0315fdffddef6c1b2a55b794ea71d2f&" alt="4A Logo" class="hero-logo">
+        <h1>THE APEX TIER</h1>
+        <p>Limitless Automation</p>
+    </section>
+
+    
+    <div class="marquee-wrapper">
+        <div class="marquee-content">
+            <span>⚡ INSTANT KEY DELIVERY</span>
+            <span>🔒 100% SAFE & SECURE</span>
+            <span>💎 PREMIUM AVAKIN SERVICES</span>
+            <span>🚀 24/7 AUTOMATED SYSTEM</span>
+  
+            <span>⚡ INSTANT KEY DELIVERY</span>
+            <span>🔒 100% SAFE & SECURE</span>
+            <span>💎 PREMIUM AVAKIN SERVICES</span>
+            <span>🚀 24/7 AUTOMATED SYSTEM</span>
+        </div>
+    </div>
+
+    
+    <main class="container">
+        
+        <h2 class="section-title" data-text="VIP SUBSCRIPTIONS" id="vip">VIP SUBSCRIPTIONS</h2>
+        <div class="products-grid">
+            
+            <!-- VIP Bronze 7 Days (SellApp Integration) -->
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1297449838559891561/1515256996197302362/1781334704734.png?ex=6a34f00c&is=6a339e8c&hm=3595c322bb9e54598a3eb5ca2a85f863eadb29dca2488974e6b5e40c41b2bb07&" alt="VIP Bronze" class="product-img">
+                <h3 class="product-title">VIP Bronze 7 Days</h3>
+                <div class="product-desc">Instant Role Delivery <br> Claim Daily Rewards <br> Automated & Safe</div>
+                <div class="product-price">$2.99</div>
+                
+                
+                <button data-sell-store="78852" data-sell-product="366866" data-sell-theme="" data-sell-darkmode="true" class="buy-btn">
+                    PURCHASE NOW
+                </button>
+            </div>
+
+           
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1297449838559891561/1515256996197302362/1781334704734.png?ex=6a30fb8c&is=6a2faa0c&hm=20e91dd75728597a26ccb1003068c16c8ab5e9e91c49d8e0d7ec54aaa20994f4&" alt="VIP Bronze" class="product-img">
+                <h3 class="product-title">VIP Bronze 30 Days</h3>
+                <div class="product-desc">Instant Role Delivery <br> Claim Daily Rewards <br> Automated & Safe</div>
+                <div class="product-price">$6.99</div>
+                <a href="https://payhip.com/b/GVoAv" target="_blank" class="buy-btn">PURCHASE NOW</a>
+            </div>
+
+            <!-- Silver 30 Days (Payhip) -->
+            <div class="product-card" style="border-color: var(--pink);">
+                <img src="https://cdn.discordapp.com/attachments/1297449838559891561/1515264678203228313/1781337629117.png?ex=6a3102b3&is=6a2fb133&hm=ab8872b5fa30c144144b9d6d2d36b1897a89414adb5daaa03d9ce9e6332540b9&" alt="VIP Silver" class="product-img">
+                <h3 class="product-title" style="color: var(--pink);">VIP Silver 30 Days</h3>
+                <div class="product-desc">Instant Role Delivery <br> Boosted Daily Rewards <br> Automated & Safe</div>
+                <div class="product-price">$10.99</div>
+                <a href="https://payhip.com/b/UFcOd" target="_blank" class="buy-btn" style="border-color:var(--pink); color:var(--pink);">PURCHASE NOW</a>
+            </div>
+
+            <!-- Gold 30 Days (Payhip) -->
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1297449838559891561/1515257089851789352/1781335710435.png?ex=6a30fba2&is=6a2faa22&hm=6a2163fab8011d2296ddfb07bc9134e344485d0fa71362ead55d0745e777b21b&" alt="VIP Gold" class="product-img">
+                <h3 class="product-title" style="color: #ffd700;">VIP Gold 30 Days</h3>
+                <div class="product-desc">Maximum Daily Points <br> For Absolute Legends <br> Automated & Safe</div>
+                <div class="product-price">$17.99</div>
+                <a href="https://payhip.com/b/uDevZ" target="_blank" class="buy-btn">PURCHASE NOW</a>
+            </div>
+
+        </div>
+
+        <h2 class="section-title" data-text="PERMANENT POINTS" id="points">PERMANENT POINTS</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1297449838559891561/1515989495810625657/Screenshot_20260615_010048_Gallery.jpg?ex=6a3102bd&is=6a2fb13d&hm=9ad0d97717b98eb4a5ee53bdc67a0bdef0315fdffddef6c1b2a55b794ea71d2f&" alt="Points" class="product-img" style="border-radius:50%;">
+                <h3 class="product-title">5,000 P-Points</h3>
+                <div class="product-desc">Never Expires <br> Instant Key Delivery</div>
+                <div class="product-price">$1.99</div>
+                <a href="https://payhip.com/b/mWsn7" target="_blank" class="buy-btn">PURCHASE NOW</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://cdn.discordapp.com/attachments/1297449838559891561/1515989495810625657/Screenshot_20260615_010048_Gallery.jpg?ex=6a3102bd&is=6a2fb13d&hm=9ad0d97717b98eb4a5ee53bdc67a0bdef0315fdffddef6c1b2a55b794ea71d2f&" alt="Points" class="product-img" style="border-radius:50%;">
+                <h3 class="product-title">50,000 P-Points</h3>
+                <div class="product-desc">Never Expires <br> Instant Key Delivery</div>
+                <div class="product-price">$9.99</div>
+                <a href="https://payhip.com/b/gCzkZ" target="_blank" class="buy-btn">PURCHASE NOW</a>
+            </div>
+
+            <div class="product-card" style="border-color: var(--pink);">
+                <img src="https://cdn.discordapp.com/attachments/1297449838559891561/1515989495810625657/Screenshot_20260615_010048_Gallery.jpg?ex=6a3102bd&is=6a2fb13d&hm=9ad0d97717b98eb4a5ee53bdc67a0bdef0315fdffddef6c1b2a55b794ea71d2f&" alt="Points" class="product-img" style="border-radius:50%;">
+                <h3 class="product-title" style="color:var(--pink);">200,000 P-Points</h3>
+                <div class="product-desc">Never Expires <br> Instant Key Delivery</div>
+                <div class="product-price">$25.99</div>
+                <a href="https://payhip.com/b/hnSIo" target="_blank" class="buy-btn" style="border-color:var(--pink); color:var(--pink);">PURCHASE NOW</a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p style="font-family: 'Orbitron'; color: var(--cyan); letter-spacing: 2px;">© 2026 4A 40R SHOP</p>
+    </footer>
+
+    
+    <script>
+        
+        function openSidebar() { document.getElementById("mySidebar").classList.add("active"); document.getElementById("sidebarOverlay").classList.add("active"); }
+        function closeSidebar() { document.getElementById("mySidebar").classList.remove("active"); document.getElementById("sidebarOverlay").classList.remove("active"); }
+
+       
+        const cursorDot = document.getElementById("cursor-dot");
+        const cursorOutline = document.getElementById("cursor-outline");
+        window.addEventListener("mousemove", function (e) {
+            const posX = e.clientX; const posY = e.clientY;
+            cursorDot.style.left = `${posX}px`; cursorDot.style.top = `${posY}px`;
+            cursorOutline.style.left = `${posX}px`; cursorOutline.style.top = `${posY}px`;
+        });
+        
+        
+        document.querySelectorAll("a, button, .menu-btn, .close-btn").forEach(el => {
+            el.addEventListener("mouseenter", () => {
+                cursorOutline.style.transform = "translate(-50%, -50%) scale(1.5)";
+                cursorOutline.style.borderColor = "#ff003c";
+                cursorDot.style.background = "#ff003c";
+                cursorDot.style.boxShadow = "0 0 10px #ff003c";
+            });
+            el.addEventListener("mouseleave", () => {
+                cursorOutline.style.transform = "translate(-50%, -50%) scale(1)";
+                cursorOutline.style.borderColor = "rgba(0, 240, 255, 0.5)";
+                cursorDot.style.background = "#00f0ff";
+                cursorDot.style.boxShadow = "0 0 10px #00f0ff";
+            });
+        });
+
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.product-card').forEach((card) => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
