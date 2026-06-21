@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>4A 40R SHOP | GOD TIER SERVICES</title>
+    <title>4A SHOP SERVICES</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,13 +31,9 @@
             scroll-behavior: smooth;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
-        @media (pointer: fine) {
-            * { cursor: none; }
-        }
+        @media (pointer: fine) { * { cursor: none; } }
 
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-void); }
@@ -51,26 +47,14 @@
         }
 
         .loader-ring {
-            position: absolute;
-            width: 220px;
-            height: 220px;
-            border: 3px solid transparent;
-            border-top-color: var(--cyan);
-            border-bottom-color: var(--pink);
-            border-radius: 50%;
-            animation: spinRing 1.5s linear infinite;
+            position: absolute; width: 220px; height: 220px;
+            border: 3px solid transparent; border-top-color: var(--cyan); border-bottom-color: var(--pink);
+            border-radius: 50%; animation: spinRing 1.5s linear infinite;
         }
 
-        .loader-logo {
-            width: 130px;
-            animation: pulseGlow 1.5s infinite alternate;
-        }
+        .loader-logo { width: 130px; animation: pulseGlow 1.5s infinite alternate; }
 
-        @keyframes spinRing {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
+        @keyframes spinRing { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         @keyframes pulseGlow {
             0% { transform: scale(0.9); filter: drop-shadow(0 0 15px var(--cyan)); opacity: 0.8; }
             100% { transform: scale(1.05); filter: drop-shadow(0 0 35px var(--cyan)); opacity: 1; }
@@ -81,8 +65,7 @@
             .cursor-dot {
                 display: block; width: 8px; height: 8px; background: var(--cyan); border-radius: 50%;
                 position: fixed; pointer-events: none; z-index: 9999;
-                transform: translate(-50%, -50%); box-shadow: 0 0 10px var(--cyan);
-                transition: width 0.2s, height 0.2s;
+                transform: translate(-50%, -50%); box-shadow: 0 0 10px var(--cyan); transition: width 0.2s, height 0.2s;
             }
             .cursor-outline {
                 display: block; width: 40px; height: 40px; border: 1px solid rgba(0, 240, 255, 0.5); border-radius: 50%;
@@ -122,8 +105,7 @@
         .menu-toggle { width: 35px; height: 24px; position: relative; z-index: 1003; cursor: pointer; }
         .menu-toggle span {
             display: block; position: absolute; height: 3px; width: 100%;
-            background: var(--cyan); border-radius: 5px; transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            background: var(--cyan); border-radius: 5px; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
         }
         .menu-toggle span:nth-child(1) { top: 0px; }
         .menu-toggle span:nth-child(2) { top: 10px; }
@@ -154,8 +136,7 @@
         .hero {
             height: 85vh; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
             position: relative; text-align: center;
-            background: url('Images/4a-shop-banner.jpg') no-repeat center top;
-            background-size: cover;
+            background: url('https://i.ibb.co/qYy3D6Mt/4a-shop-banner.jpg') no-repeat center top; background-size: cover;
         }
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -172,16 +153,14 @@
         }
         .typing-text {
             font-size: 1.5rem; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase;
-            z-index: 1; position: relative; font-weight: 700;
-            border-right: 3px solid var(--cyan); white-space: nowrap; overflow: hidden; margin: 0 auto;
-            animation: blinkCursor 0.75s step-end infinite;
+            z-index: 1; position: relative; font-weight: 700; border-right: 3px solid var(--cyan);
+            white-space: nowrap; overflow: hidden; margin: 0 auto; animation: blinkCursor 0.75s step-end infinite;
         }
 
         .marquee-wrapper {
             background: var(--cyan); color: #000; padding: 10px 0; font-family: 'Orbitron', sans-serif;
-            font-weight: bold; font-size: 1.1rem; letter-spacing: 2px;
-            width: 100%; overflow: hidden; display: flex; white-space: nowrap;
-            box-shadow: 0 0 20px var(--cyan); position: relative; z-index: 10;
+            font-weight: bold; font-size: 1.1rem; letter-spacing: 2px; width: 100%; overflow: hidden; display: flex;
+            white-space: nowrap; box-shadow: 0 0 20px var(--cyan); position: relative; z-index: 10;
         }
         .marquee-content { display: flex; animation: scrollText 15s linear infinite; }
         .marquee-content span { margin: 0 30px; }
@@ -198,29 +177,21 @@
         }
 
         .products-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: stretch;
-            gap: 40px;
-            margin-bottom: 80px;
-            perspective: 1000px;
+            display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch;
+            gap: 40px; margin-bottom: 80px;
         }
 
         .product-card {
-            flex: 0 1 340px;
-            max-width: 100%;
-            position: relative; background: #000; border-radius: 20px; padding: 40px 25px; text-align: center;
-            z-index: 1; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            transform-style: preserve-3d; transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 0 1 340px; max-width: 100%; position: relative; background: #000; border-radius: 20px;
+            padding: 40px 25px; text-align: center; z-index: 1; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            perspective: 1000px; transform-style: preserve-3d; transition: transform 0.4s ease, box-shadow 0.4s ease;
             display: flex; flex-direction: column; justify-content: space-between;
         }
 
         .glare {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 60%);
-            opacity: 0; pointer-events: none; border-radius: 18px; z-index: 0;
-            transition: opacity 0.3s;
+            opacity: 0; pointer-events: none; border-radius: 18px; z-index: 0; transition: opacity 0.3s;
         }
         .product-card:hover .glare { opacity: 1; }
 
@@ -230,25 +201,38 @@
             animation: spinBorder 4s linear infinite; z-index: -2; border-radius: 25px;
         }
         .product-card::after {
-            content: ''; position: absolute; inset: 2px; background: var(--card-inner);
-            border-radius: 18px; z-index: -1;
+            content: ''; position: absolute; inset: 2px; background: var(--card-inner); border-radius: 18px; z-index: -1;
         }
 
         @keyframes spinBorder { 100% { transform: rotate(360deg); } }
-
         .product-card:hover::before { background: conic-gradient(transparent, transparent, transparent, var(--pink)); animation-duration: 2s; }
-        
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,240,255,0.2); }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,240,255,0.3); }
+
+        .image-wrapper {
+            height: 140px; width: 100%; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 25px; position: relative; z-index: 2; transform-style: preserve-3d;
+        }
 
         .product-img {
-            height: 130px; object-fit: contain; margin-bottom: 20px;
-            position: relative; z-index: 2; transition: 0.3s;
+            max-height: 100%; max-width: 100%; object-fit: contain;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: floatImage 4s ease-in-out infinite; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
         }
+
         .product-icon {
-            font-size: 4rem; margin-bottom: 20px; position: relative; z-index: 2;
-            background: linear-gradient(45deg, var(--cyan), var(--purple));
+            font-size: 4.5rem; background: linear-gradient(45deg, var(--cyan), var(--purple));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));
+            animation: floatImage 4s ease-in-out infinite; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateZ(50px) translateY(0); }
+            50% { transform: translateZ(50px) translateY(-12px); }
+        }
+
+        .product-card:hover .product-img, .product-card:hover .product-icon {
+            transform: translateZ(80px) scale(1.15) rotate(3deg); filter: drop-shadow(0 15px 25px var(--cyan)); animation: none;
         }
         
         .product-title { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; margin-bottom: 15px; color: #fff; position: relative; z-index: 2; }
@@ -259,7 +243,7 @@
             position: relative; background: transparent; color: var(--cyan); border: 1px solid var(--cyan);
             padding: 12px 0; width: 100%; border-radius: 8px; font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem; font-weight: bold; letter-spacing: 2px; transition: 0.3s; text-transform: uppercase;
-            text-decoration: none; display: block; overflow: hidden; appearance: none; z-index: 2; margin-top: auto;
+            text-decoration: none; display: block; overflow: hidden; appearance: none; z-index: 2; margin-top: auto; cursor: none;
         }
         .buy-btn::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -273,7 +257,7 @@
         @media (max-width: 768px) {
             header.nav-bar { padding: 15px 20px; }
             .brand { font-size: 1.5rem; }
-            .hero { background-size: contain; background-position: center top; height: 60vh; }
+            .hero { background-size: cover; background-position: center top; height: 60vh; }
             .hero::before { background: linear-gradient(to bottom, rgba(3,3,5,0.2) 0%, var(--bg-void) 80%); }
             .hero h1 { font-size: 2.5rem; letter-spacing: 2px; }
             .typing-text { font-size: 1.2rem; }
@@ -289,7 +273,7 @@
 
     <div id="loader">
         <div class="loader-ring"></div>
-        <img src="Images/4a-logo.png" alt="Loading" class="loader-logo">
+        <img src="https://i.ibb.co/Cp7hRLtS/4a-logo.png" alt="Loading" class="loader-logo">
     </div>
 
     <div class="cursor-dot" id="cursor-dot"></div>
@@ -315,7 +299,7 @@
     </nav>
 
     <section class="hero">
-        <img src="Images/4a-logo.png" alt="4A Logo" class="hero-logo">
+        <img src="https://i.ibb.co/Cp7hRLtS/4a-logo.png" alt="4A Logo" class="hero-logo">
         <h1>THE APEX TIER</h1>
         <div class="typing-text" id="typewriter"></div>
     </section>
@@ -336,52 +320,64 @@
             
             <div class="product-card" style="border-color: #ffd700;">
                 <div class="glare"></div>
-                <img src="Images/vip-gold.png" alt="VIP Gold" class="product-img">
+                <div class="image-wrapper">
+                    <img src="https://i.ibb.co/bg7YxybV/vip-gold.png" alt="VIP Gold" class="product-img">
+                </div>
                 <h3 class="product-title" style="color: #ffd700;">🥇 VIP Gold - 30 Days</h3>
                 <div class="product-desc">Maximum Daily Points <br> For Absolute Legends <br> Automated & Safe</div>
                 <div class="product-price">$17.99</div>
-                <a href="#" class="buy-btn">PURCHASE NOW</a>
+                <button data-sell-store="78852" data-sell-product="367098" data-sell-theme="" data-sell-darkmode="true" class="buy-btn">PURCHASE NOW</button>
             </div>
 
             <div class="product-card" style="border-color: #ffd700;">
                 <div class="glare"></div>
-                <img src="Images/vip-gold.png" alt="VIP Gold" class="product-img">
+                <div class="image-wrapper">
+                    <img src="https://i.ibb.co/bg7YxybV/vip-gold.png" alt="VIP Gold" class="product-img">
+                </div>
                 <h3 class="product-title" style="color: #ffd700;">🥇 VIP Gold - 7 Days</h3>
                 <div class="product-desc">Maximum Daily Points <br> For Absolute Legends <br> Automated & Safe</div>
                 <div class="product-price">$8.99</div>
-                <a href="#" class="buy-btn">PURCHASE NOW</a>
+                <button data-sell-store="78852" data-sell-product="367096" data-sell-theme="" data-sell-darkmode="true" class="buy-btn">PURCHASE NOW</button>
             </div>
 
             <div class="product-card" style="border-color: var(--pink);">
                 <div class="glare"></div>
-                <img src="Images/vip-silver.png" alt="VIP Silver" class="product-img">
+                <div class="image-wrapper">
+                    <img src="https://i.ibb.co/Kz9bymdm/vip-silver.png" alt="VIP Silver" class="product-img">
+                </div>
                 <h3 class="product-title" style="color: var(--pink);">🥈 VIP Silver - 30 Days</h3>
                 <div class="product-desc">Instant Role Delivery <br> Boosted Daily Rewards <br> Automated & Safe</div>
                 <div class="product-price">$10.99</div>
-                <a href="#" class="buy-btn" style="border-color:var(--pink); color:var(--pink);">PURCHASE NOW</a>
+                <button data-sell-store="78852" data-sell-product="367094" data-sell-theme="" data-sell-darkmode="true" class="buy-btn" style="border-color:var(--pink); color:var(--pink);">PURCHASE NOW</button>
             </div>
 
             <div class="product-card" style="border-color: var(--pink);">
                 <div class="glare"></div>
-                <img src="Images/vip-silver.png" alt="VIP Silver" class="product-img">
+                <div class="image-wrapper">
+                    <img src="https://i.ibb.co/Kz9bymdm/vip-silver.png" alt="VIP Silver" class="product-img">
+                </div>
                 <h3 class="product-title" style="color: var(--pink);">🥈 VIP Silver - 7 Days</h3>
                 <div class="product-desc">Instant Role Delivery <br> Boosted Daily Rewards <br> Automated & Safe</div>
                 <div class="product-price">$5.99</div>
-                <a href="#" class="buy-btn" style="border-color:var(--pink); color:var(--pink);">PURCHASE NOW</a>
+                <button data-sell-store="78852" data-sell-product="367092" data-sell-theme="" data-sell-darkmode="true" class="buy-btn" style="border-color:var(--pink); color:var(--pink);">PURCHASE NOW</button>
             </div>
 
             <div class="product-card">
                 <div class="glare"></div>
-                <img src="Images/vip-bronze.png" alt="VIP Bronze" class="product-img">
+                <div class="image-wrapper">
+                    <img src="https://i.ibb.co/fV4w5GXY/vip-bronze.png" alt="VIP Bronze" class="product-img">
+                </div>
                 <h3 class="product-title">🥉 VIP Bronze - 30 Days</h3>
                 <div class="product-desc">Instant Role Delivery <br> Claim Daily Rewards <br> Automated & Safe</div>
                 <div class="product-price">$6.99</div>
-                <a href="#" class="buy-btn">PURCHASE NOW</a>
+                <button data-sell-store="78852" data-sell-product="367091" data-sell-theme="" data-sell-darkmode="true" class="buy-btn">PURCHASE NOW</button>
             </div>
 
             <div class="product-card">
                 <div class="glare"></div>
-                <img src="Images/vip-bronze.png" alt="VIP Bronze" class="product-img">
+                <div class="image-wrapper">
+                    <img src="https://i.ibb.co/fV4w5GXY/vip-bronze.png" alt="VIP Bronze" class="product-img">
+                </div>
                 <h3 class="product-title">🥉 VIP Bronze - 7 Days</h3>
                 <div class="product-desc">Instant Role Delivery <br> Claim Daily Rewards <br> Automated & Safe</div>
                 <div class="product-price">$2.99</div>
@@ -395,65 +391,79 @@
 
             <div class="product-card" style="border-color: var(--pink);">
                 <div class="glare"></div>
-                <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="image-wrapper">
+                    <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                </div>
                 <h3 class="product-title" style="color:var(--pink);">💎 200,000 P-Points</h3>
                 <div class="product-desc">Never Expires <br> Instant Key Delivery</div>
-                <div class="product-price">$25.99</div>
-                <a href="#" class="buy-btn" style="border-color:var(--pink); color:var(--pink);">PURCHASE NOW</a>
+                <div class="product-price">$24.99</div>
+                <button data-sell-store="78852" data-sell-product="367166" data-sell-theme="" data-sell-darkmode="true" class="buy-btn" style="border-color:var(--pink); color:var(--pink);">PURCHASE NOW</button>
             </div>
 
             <div class="product-card">
                 <div class="glare"></div>
-                <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="image-wrapper">
+                    <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                </div>
                 <h3 class="product-title">💎 150,000 P-Points</h3>
                 <div class="product-desc">Never Expires <br> Instant Key Delivery</div>
                 <div class="product-price">$19.99</div>
-                <a href="#" class="buy-btn">PURCHASE NOW</a>
+                <button data-sell-store="78852" data-sell-product="367165" data-sell-theme="" data-sell-darkmode="true" class="buy-btn">PURCHASE NOW</button>
             </div>
 
             <div class="product-card">
                 <div class="glare"></div>
-                <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="image-wrapper">
+                    <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                </div>
                 <h3 class="product-title">💎 100,000 P-Points</h3>
                 <div class="product-desc">Never Expires <br> Instant Key Delivery</div>
-                <div class="product-price">$15.99</div>
-                <a href="#" class="buy-btn">PURCHASE NOW</a>
+                <div class="product-price">$16.99</div>
+                <button data-sell-store="78852" data-sell-product="367163" data-sell-theme="" data-sell-darkmode="true" class="buy-btn">PURCHASE NOW</button>
             </div>
 
             <div class="product-card">
                 <div class="glare"></div>
-                <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="image-wrapper">
+                    <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                </div>
                 <h3 class="product-title">💎 50,000 P-Points</h3>
                 <div class="product-desc">Never Expires <br> Instant Key Delivery</div>
-                <div class="product-price">$9.99</div>
-                <a href="#" class="buy-btn">PURCHASE NOW</a>
+                <div class="product-price">$10.99</div>
+                <button data-sell-store="78852" data-sell-product="367106" data-sell-theme="" data-sell-darkmode="true" class="buy-btn">PURCHASE NOW</button>
             </div>
 
             <div class="product-card">
                 <div class="glare"></div>
-                <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="image-wrapper">
+                    <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                </div>
                 <h3 class="product-title">💎 20,000 P-Points</h3>
                 <div class="product-desc">Never Expires <br> Instant Key Delivery</div>
                 <div class="product-price">$5.99</div>
-                <a href="#" class="buy-btn">PURCHASE NOW</a>
+                <button data-sell-store="78852" data-sell-product="367105" data-sell-theme="" data-sell-darkmode="true" class="buy-btn">PURCHASE NOW</button>
             </div>
 
             <div class="product-card">
                 <div class="glare"></div>
-                <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="image-wrapper">
+                    <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                </div>
                 <h3 class="product-title">💎 10,000 P-Points</h3>
                 <div class="product-desc">Never Expires <br> Instant Key Delivery</div>
                 <div class="product-price">$3.99</div>
-                <a href="#" class="buy-btn">PURCHASE NOW</a>
+                <button data-sell-store="78852" data-sell-product="367103" data-sell-theme="" data-sell-darkmode="true" class="buy-btn">PURCHASE NOW</button>
             </div>
             
             <div class="product-card">
                 <div class="glare"></div>
-                <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="image-wrapper">
+                    <div class="product-icon"><i class="fa-solid fa-gem"></i></div>
+                </div>
                 <h3 class="product-title">💎 5,000 P-Points</h3>
                 <div class="product-desc">Never Expires <br> Instant Key Delivery</div>
                 <div class="product-price">$1.99</div>
-                <a href="#" class="buy-btn">PURCHASE NOW</a>
+                <button data-sell-store="78852" data-sell-product="367101" data-sell-theme="" data-sell-darkmode="true" class="buy-btn">PURCHASE NOW</button>
             </div>
 
         </div>
@@ -519,11 +529,11 @@
                     const rotateX = ((y - centerY) / centerY) * -10; 
                     const rotateY = ((x - centerX) / centerX) * 10;
                     
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
                     if(glare) glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.2), transparent 60%)`;
                 });
                 card.addEventListener('mouseleave', () => {
-                    card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) translateY(0)`;
+                    card.style.transform = `rotateX(0) rotateY(0) translateY(0)`;
                     if(glare) glare.style.background = `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 60%)`;
                 });
             });
